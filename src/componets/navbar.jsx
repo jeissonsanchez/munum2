@@ -20,6 +20,11 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: theme.spacing(3)
+  },
+  viewName:{
+    letterSpacing: "0.235em",
+    fontSize: 20,
+    fontWeight: 900
   }
 }));
 
@@ -43,7 +48,9 @@ export default function Navbar() {
       <AppBar className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
           <Button color="transparent" className={classes.button}>
+          <Typography className={classes.viewName} variant="h1" >
             Dashboard
+          </Typography>
           </Button>
           <Profile />
         </Toolbar>

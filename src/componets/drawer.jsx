@@ -10,6 +10,7 @@ import { Divider } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import logo from "../assets/img/ico/logo.png";
+import home from "../assets/img/ico/home.svg";
 
 const drawerWidth = 80;
 const itemSize = 80;
@@ -32,6 +33,9 @@ const useStyles = makeStyles(props => ({
     display: "flex",
     justifyContent: "space-between"
   },
+  logoMunum: {
+    backgroundColor: "black",
+  },
   listItem: {
     width: ` ${itemSize}px`,
     height: ` ${itemSize}px`,
@@ -39,10 +43,10 @@ const useStyles = makeStyles(props => ({
     justifyContent: "center",
     alignItems: "center",
     borderLeft: "6px solid transparent",
-    backgroundColor: props => {
-      console.log(props);
-      props.propouse === "brand" ? "red" : "blue";
-    },
+    // backgroundColor: props => {
+    //   console.log(props);
+    //   props.propouse === "brand" ? "red" : "blue";
+    // },
     "&:hover": {
       backgroundColor: " rgba(254, 182, 42, 0.15)",
       borderLeft: "6px solid #FEB52A"
@@ -58,7 +62,7 @@ const useStyles = makeStyles(props => ({
   }
 }));
 
-export default function PermanentDrawerLeft() {
+export default function PermanentDrawerLeft(  ) {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
@@ -78,7 +82,7 @@ export default function PermanentDrawerLeft() {
           <List>
             {["munum"].map((text, index) => (
               <ListItem
-                className={classes.listItem}
+                className={`${classes.listItem} ${classes.logoMunum}`}
                 button
                 key={text}
                 propouse="brand"
@@ -94,13 +98,14 @@ export default function PermanentDrawerLeft() {
               (text, index) => (
                 <ListItem className={classes.listItem} button key={text}>
                   <ListItemIcon className={classes.listItemIcon}>
-                    <img src={logo} alt="My logo" />
+                    <img src={home} alt="My logo" />
                   </ListItemIcon>
                 </ListItem>
               )
             )}
           </List>
           <List className={classes.socialNetworks}>
+
             {["instagram", "facebook"].map((text, index) => (
               <ListItem className={classes.listItem} button key={text}>
                 <ListItemIcon className={classes.listItemIcon}>
